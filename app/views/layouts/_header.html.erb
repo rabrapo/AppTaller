@@ -1,0 +1,103 @@
+<header>
+  <div class="container">
+    <nav class="navbar navbar-toggleable-md navbar-light bg-warning mb-4">
+      <button class="navbar-toggler navbar-toggler-right" type="button"
+              data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <%= link_to "/", class: "navbar-brand" do %>
+        <%= icon('car', class: 'fa fa-lg d-inline-block align-top', aria: {hidden: "true"}) %> Taller Rabrapo
+      <% end %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Enlace</a>
+          </li>
+        </ul>
+        <!-- barra de búsqueda -->
+        <div class='search-container'>
+          <input class="buscar" placeholder='Buscar' type='text'>
+          <%= link_to "#", class: "lupa" do %>
+            <%= icon("search", class: "fa fa-lg") %>
+          <% end %>
+        </div>
+        <!-- fin barra de búsqueda -->
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+            <li class="nav-item"><%= link_to "Usuarios", users_path, class: 'nav-link' %></li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                Cuenta <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="nav-item"><%= link_to "Perfil", current_user, class: 'nav-link' %></li>
+                <li class="nav-item"><%= link_to "Ajustes", edit_user_path(current_user), class: 'nav-link' %></li>
+                <li class="divider"></li>
+                <li class="nav-item"><%= link_to "Salir", salir_path, method: "delete", class: 'nav-link' %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <!-- Link Login trigger modal -->
+              <%= link_to "#", class: "linkLogin", data: {toggle: "modal", target: "#loginModal"} do %>
+                <%= icon("sign-in", class: "fa fa-lg dcha fw", aria: {hidden: "true"}) %> Entrar
+              <% end %>
+              <!-- Modal -->
+              <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Inicio de sesión</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <%= form_for(:session, url: entrar_path) do |f| %>
+                        <%= content_tag(:div, class: ["form-group", "has-danger"]) do %>
+                          <%= f.label :email, "Email" %>
+                          <%= f.email_field :email, class: 'form-control', id: "loginInputEmail",
+                            autofocus: true, required: "required", placeholder: "EMAIL: ejemplo@ejemplo.com",
+                            title: 'Introduzca su email' %>
+                          <%= f.label :password, "Contraseña" %>
+                          <%= link_to "(¿Recordar contraseña?)", "#", class: "enlace" %>
+                          <%= f.password_field :password, class: 'form-control',
+                            id: "loginInputPassword", required: "required", placeholder: "Contraseña",
+                            title: 'Introduzca su contraseña' %>
+                          <%= f.label :remember_me, class: "checkbox inline" do %>
+                            <%= f.check_box :remember_me %>
+                            <span>Recordarme en este ordenador</span>
+                          <% end %>
+                        <% end %>
+                        <%= f.submit "Entrar", class: "btn btn-primary", id: "entrar" %>
+                      <% end %>
+                      <%= content_tag(:small, "¿Aún no está registrado?", class: ["form-text", "text-muted"]) %>
+                      <%= link_to "¡Regístrese!", registro_path %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item">
+              <%= link_to registro_path, class: "linkLogin" do %>
+                <%= icon('user-plus', class: 'fa fa-lg dcha fw', aria: {hidden: "true"}) %> Registro
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Rastro de migas
+  <nav class="breadcrumb">
+    <a class="breadcrumb-item" href="#">Home</a>
+    <a class="breadcrumb-item" href="#">Library</a>
+    <a class="breadcrumb-item" href="#">Data</a>
+    <span class="breadcrumb-item active">Bootstrap</span>
+  </nav>
+  -->
+</header>

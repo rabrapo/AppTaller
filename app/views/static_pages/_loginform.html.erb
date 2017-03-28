@@ -1,0 +1,8 @@
+<% titulo "Entrar" %>
+<h2>Iniciar sesion</h2>
+
+<%= form_for :session, url: login_path, validate: true do |f| %>
+  Email: <%= f.email_field :email %> <br>
+  Contrseña: <%= f.password_field :password %> <br>
+  <%= f.submit "Iniciar sesion" %>
+<% end %>

@@ -1,0 +1,43 @@
+//colors
+$color_japanese_laurel_approx: green;
+$blue: blue;
+
+#pincha {
+	background: $color_japanese_laurel_approx;
+	color: $blue;
+}
+
+#carouselExampleInicio {
+	margin-bottom: 5.2631579%;
+	margin-left: 7.0175439%;
+}
+
+.prueba {
+	margin: 10px 0 10px 40px;
+}
+
+.buy-button {
+  background: #00A0D6;
+  border: 0;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
+  color: #FFF;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 3;
+  height: 50px;
+  width: 175px;
+  position: relative;
+  transition: all .4s, border 0.7s;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.content {
+  position: absolute;
+  transition: top 0.7s;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  display: block;
+}

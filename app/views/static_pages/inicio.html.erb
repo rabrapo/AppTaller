@@ -1,0 +1,49 @@
+<% provide(:title, 'Inicio') %>
+
+<div class="row primera">
+  <div id="carouselExampleInicio" class="carousel slide col-sm-10" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleInicio" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleInicio" data-slide-to="1"></li>
+      <li data-target="#carouselExampleInicio" data-slide-to="2"></li>
+  </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <%= image_tag("Diapositiva_1.png", class: "d-block img-fluid", alt: "Primer slide") %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag("Diapositiva_2.png", class: "d-block img-fluid", alt: "Segundo slide") %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag("Diapositiva_3.png", class: "d-block img-fluid", alt: "Tercer slide") %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <h2><span class="badge badge-pill badge-success">Primera columna</span></h2>
+    <p>Find me in app/views/static_pages/inicio.html.erb</p>
+  </div>
+  <div class="col-md-4">
+    <h2>Segunda columna</h2>
+    <button type="button" id="pincha" class="btn btn-info btn-block">Pínchame</button>
+  </div>
+  <div class="col-md-4">
+    <h2>Tercera columna</h2>
+    <button type="button" id="pinchar" class="btn btn-outline-warning">Pínchame</button>
+  </div>
+</div>
+<!--
+<div class="row">
+  <div class="col-md-4">
+
+  </div>
+  <div class="col-md-4 prueba">
+    <a href="#" class="btn buy-button">
+      <span class="top content">Buy Now</span>
+      <span class="bottom content">On Sale $35</span>
+    </a>
+  </div>
+</div>
+-->

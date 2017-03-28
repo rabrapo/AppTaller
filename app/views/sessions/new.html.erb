@@ -1,0 +1,21 @@
+<% provide(:title, "Iniciar Sesión") %>
+<h1>Iniciar sesión</h1>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <%= form_for(:session, url: entrar_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control', autofocus: true, required: "required", title: 'Introduzca su email' %>
+
+      <%= f.label :password, "Contraseña" %>
+      <%= link_to "(¿Recordar contraseña?)", "#", class: "enlace" %>
+      <%= f.password_field :password, class: 'form-control', required: "required", title: 'Introduzca su contraseña' %>
+
+      <%= f.submit "Entrar", class: "btn btn-primary" %>
+    <% end %>
+
+    <%= content_tag(:small, "¿Aún no está registrado?", class: ["form-text", "text-muted"]) %>
+    <%= link_to "¡Regístrese!", registro_path %>
+  </div>
+</div>
