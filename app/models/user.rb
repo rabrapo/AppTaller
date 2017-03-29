@@ -2,19 +2,24 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  name            :string
-#  email           :string
-#  password_digest :string           password, password_confirmation
-#  remember_digest :string           remember_token
-#  token_digest    :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                :integer          not null, primary key
+#  name              :string
+#  email             :string
+#  slug              :string           para las rutas: FriendlyId
+#  password_digest   :string           password, password_confirmation
+#  remember_digest   :string           remember_token
+#  token_digest      :string
+#  activation_digest :string
+#  activated         :boolean          ¿activada la cuenta?
+#  activated_at      :datetime         cuándo activó el usuario su cuenta
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
 #
 
 class User < ApplicationRecord
-  attr_accessor :remember_token
-  before_save { self.email = email.downcase }
+  attr_accessor :remember_token, :activation_token
+  before_save :downcase_email
+  before_create :create_activation_digest
 
   extend FriendlyId
   friendly_id :name, use: :slugged
@@ -54,4 +59,14 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  private
+    def downcase_email
+      self.email = email.downcase
+    end
+    # Creates and assigns the activation token and digest.
+    def create_activation_digest
+      self.activation_token = User.new_token
+      self.activation_digest = User.digest(activation_token)
+    end
 end

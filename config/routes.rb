@@ -17,5 +17,8 @@ Rails.application.routes.draw do
   post   '/entrar',   to: 'sessions#create'
   delete '/salir',    to: 'sessions#destroy'
 
+  #rutas de ActivacionDeCuentas
+  resources :activacion_cuentas, only: [:edit]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
