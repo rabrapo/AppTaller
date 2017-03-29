@@ -7,6 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 21.times do |n|
-  user = User.find_by(id: n)
-  user.update(activated: true, activated_at: Time.zone.now)
+  User.find_by(id: n).update(activated: true, activated_at: Time.zone.now)
 end
