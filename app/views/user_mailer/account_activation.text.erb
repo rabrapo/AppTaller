@@ -1,0 +1,5 @@
+Hola <%= @user.name %>
+
+Bienvenido a TallerRabrapo, pinche en el enlace a continuación para activar su cuenta:
+
+<%= edit_activacion_cuenta_url(@user.activation_token, email: @user.email) %>
