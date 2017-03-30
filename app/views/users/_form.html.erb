@@ -1,13 +1,11 @@
 <%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages', object: @user %>
-
   <%= f.label :name, "Nombre" %>
   <%= f.text_field :name, class: 'form-control', title: 'Introduzca su nombre' %>
 
   <%= f.label :email %>
   <%= f.email_field :email, class: 'form-control', title: 'Introduzca su email' %>
 
-  <%= f.label :password, "Contraseña (al menos 6 caracteres)" %>
+  <%= f.label :password, "Contraseña" %>
   <%= f.password_field :password, class: 'form-control', title: 'Introduzca una contraseña (al menos 6 caracteres)' %>
 
   <%= f.label :password_confirmation, "Repetir contraseña" %>

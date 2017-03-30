@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
 
   def index
-    @users = User.page(params[:page]).per(5)
+    @users = User.where(activated: true).page(params[:page]).per(10)
     # ajax request will result in request.xhr? not nil
     # layout will be true if request is not an ajax request
     render action: :index, layout: request.xhr? == nil
@@ -15,12 +15,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:id])
+    redirect_to root_url and return unless true
   end
 
   def create
     @user = User.new(user_params) #strong parameters
     if @user.save
-      UserMailer.account_activation(@user).deliver_now
+      @user.send_activation_email
       flash[:info] = "Revise su email para activar su cuenta"
       redirect_to root_url
       #log_in @user

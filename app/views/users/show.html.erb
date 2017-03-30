@@ -3,8 +3,11 @@
   <aside class="col-sm-4 offset-sm-1">
     <section class="user_info">
       <h1>
-        <%= imagen_gravatar @user %>
-        <%= @user.email %>
+        <ul>
+          <li><%= imagen_gravatar @user, size: 50 %></li>
+          <li><%= @user.name %></li>
+          <li><%= @user.email %></li>
+        </ul>
       </h1>
     </section>
   </aside>

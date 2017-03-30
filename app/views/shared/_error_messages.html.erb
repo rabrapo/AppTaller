@@ -1,5 +1,5 @@
 <% if @user.errors.any? %>
-  <div class="alert alert-danger" role="alert">
+  <div id="error_explanation" class="alert alert-danger" role="alert">
     <h5 class="alert-heading">Errores encontrados:</h5>
     <ul>
       <% @user.errors.full_messages.each do |msg| %>

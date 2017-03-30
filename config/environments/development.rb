@@ -57,16 +57,14 @@ Rails.application.configure do
 
   #envío de correos
   config.action_mailer.delivery_method = :smtp
-
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
     domain: "tallerrabrapo.es",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["rafaelbrazapolanco@gmail.com"],
-    password: ENV["r0000afael"]
+    user_name: "rafaelbrazapolanco@gmail.com",
+    password: "r0000afael"
   }
-
   config.action_mailer.default_url_options = { host: "localhost:3000"}
 end
