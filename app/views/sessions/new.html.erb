@@ -9,7 +9,7 @@
       <%= f.email_field :email, class: 'form-control', autofocus: true, required: "required", title: 'Introduzca su email' %>
 
       <%= f.label :password, "Contraseña" %>
-      <%= link_to "(¿Recordar contraseña?)", "#", class: "enlace" %>
+      <%= link_to "(¿Recordar contraseña?)", new_password_reset_path, class: "enlace" %>
       <%= f.password_field :password, class: 'form-control', required: "required", title: 'Introduzca su contraseña' %>
 
       <%= f.submit "Entrar", class: "btn btn-primary" %>

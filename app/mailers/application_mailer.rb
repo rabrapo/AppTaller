@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'cuentas@tallerrabrapo.es'
+  default from: 'usuarios@tallerrabrapo.es'
   layout 'mailer'
 end
